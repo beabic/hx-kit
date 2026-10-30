@@ -11,9 +11,14 @@ Codex 로 해커톤 과제를 풀 때 쓰는 작업 규칙 스킬 `hx` 하나.
 과제 폴더에서:
 
 ```sh
+git init -q
 git clone -q --depth 1 https://github.com/beabic/hx-kit .agents/skills/hx
 rm -rf .agents/skills/hx/.git
 ```
+
+- `git init` 은 사람이 친다 — Codex 샌드박스에서는 `.git` 만들기가 막힐 수 있다. 이미 저장소면 그대로 둔다.
+- `.git` 을 지워야 스킬 파일이 과제 저장소 커밋에 들어간다.
+- Codex 를 **켜기 전에** 받는다.
 
 그다음 Codex 에서 `$hx 시작` → `$hx 나누기` → `$hx 기록 …` → `$hx 설계` → `$hx 카드 C1` …
 
@@ -24,8 +29,8 @@ rm -rf .agents/skills/hx/.git
 | 처음 | `$hx 시작` | git 준비 · `.gitignore`(비밀값 맨 위) · 런타임 확인 · `AGENTS.md` 3줄 · `PLANS.md` 틀 |
 | README 읽고 | `$hx 나누기` | README 를 7칸 표로 `.hx/interview.md` 에 (README 는 그대로) · 첫 질문 후보 3개 |
 | 담당자 답마다 | `$hx 기록` | 질문 / 답 원문 / 요약 / 바뀐 결정 |
-| 설계 | `$hx 설계` | 가장 작은 안 + 대안 하나 → `.hx/decisions.md` |
-| 구현 | `$hx 카드 N` | 5줄 계획만 → 승인 뒤 그 범위만 구현·테스트 |
+| 설계 | `$hx 설계` | 가장 작은 안 + 대안 하나 → `.hx/decisions.md`, 카드 3~5장 → `PLANS.md` |
+| 구현 | `$hx 카드 N` | `PLANS.md` 의 카드 N 을 5줄 계획으로만 → 승인 뒤 그 범위만 구현·테스트 |
 | 맡기기 | `$hx 위임 N` | 서브에이전트 하나에 |
 | 커밋마다 | `$hx 커밋` | 바뀐 파일·비밀값 검사 → add 목록과 메시지만 제안(실행은 사람) |
 | 90분 | `$hx 점검` | 화면 흐름 · 테스트 · README 실행 · git 상태 |
